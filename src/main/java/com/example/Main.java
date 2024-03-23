@@ -38,6 +38,9 @@ public class Main {
         parkinglotSystem.bookSlot(vehical3, user2);
         parkinglotSystem.bookSlot(vehical4, user2);
         parkinglotSystem.bookSlot(vehical2, user1);
+        parkinglotSystem.printAllSlots(user2);
+        parkinglotSystem.releaseSlot(3, user1);
+        System.out.println("aaa");
         parkinglotSystem.printAllSlots(user1);
     }    
 }

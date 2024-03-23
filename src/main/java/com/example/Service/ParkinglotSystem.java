@@ -27,7 +27,7 @@ public class ParkinglotSystem {
         parkinglots.add(parkingLot);
     }
 
-    public void bookSlot(Vehical vehical, User user){
+    public Integer bookSlot(Vehical vehical, User user){
         boolean isPoss = false;
         Integer slotId = 0;
         for(int i=0;i<parkinglots.size();i++){
@@ -58,6 +58,13 @@ public class ParkinglotSystem {
             }
             printSlot(slotId, user, vehical);
         }
+        return slotId;
+    }
+
+    public void releaseSlot(Integer slotId, User user){
+        slotToUser.remove(slotId);
+        slotToVehical.remove(slotId);
+        usersToParkingLots.get(user.getId()).remove(slotId);
     }
 
     public void printSlot(Integer slotId, User user, Vehical vehical){
@@ -66,7 +73,7 @@ public class ParkinglotSystem {
 
     public void printAllSlots(User user){
         for(int i=0; i<usersToParkingLots.get(user.getId()).size(); i++){
-            System.out.println("slot id = "+usersToParkingLots.get(user.getId()).get(i)+" vehical id = "+slotToVehical.get(usersToParkingLots.get(user.getId()).get(i)));
+            System.out.println("slot bbb id = "+usersToParkingLots.get(user.getId()).get(i)+" vehical id = "+slotToVehical.get(usersToParkingLots.get(user.getId()).get(i))+" ");
         }
     }
 }
